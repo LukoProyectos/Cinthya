@@ -62,7 +62,7 @@ const f2url=f=>{                                       // audio / video -> ruta
   return storeFile(f,`${kind}/${slug(f.name)}-${rid()}${ext}`);
 };
 async function publish(){
-  if(!ghReady()){toast('Primero conecta GitHub (sección 9).',true);return}
+  if(!ghReady()){toast('Primero conecta GitHub (sección 8).',true);return}
   const btn=$('#pub');btn.disabled=true;
   try{
     const clean=a=>a.filter(x=>String(x).trim());
@@ -89,7 +89,7 @@ function wireGit(){
 }
 function draftCheck(){
   try{const x=JSON.parse(localStorage.getItem(KEY)||'null');
-    if(x&&JSON.stringify(normalize(clone(x)))!==JSON.stringify(D))setSave('⚠ Hay un borrador local distinto: usa ↻ Recuperar borrador (sección 9).',true)}catch(e){}
+    if(x&&JSON.stringify(normalize(clone(x)))!==JSON.stringify(D))setSave('⚠ Hay un borrador local distinto: usa ↻ Recuperar borrador (sección 8).',true)}catch(e){}
 }
 
 /* ---------- PANEL MAESTRO ---------- */
@@ -104,9 +104,9 @@ function saveNow(auto){
 }
 function changed(){setSave('Guardando…');clearTimeout(saveT);saveT=setTimeout(()=>saveNow(true),600)}
 
-/* Editor de listas (razones y frases) */
+/* Editor de listas (razones) */
 function drawList(k,boxId,ph,addLabel){
-  const box=$('#'+boxId);box.innerHTML='';
+  const box=$('#'+boxId);if(!box)return;box.innerHTML='';
   const redraw=()=>{drawList(k,boxId,ph,addLabel);renderPage();changed()};
   D[k].forEach((txt,i)=>{
     const r=el(`<div class="li"><span class="n">${i+1}</span><textarea rows="2" placeholder="${esc(ph)}"></textarea><div class="ac"><button type="button" title="Subir"${i===0?' disabled':''}>↑</button><button type="button" title="Bajar"${i===D[k].length-1?' disabled':''}>↓</button><button type="button" title="Eliminar">🗑</button></div></div>`);
@@ -122,7 +122,7 @@ function drawList(k,boxId,ph,addLabel){
   add.onclick=()=>{D[k].push('');drawList(k,boxId,ph,addLabel);const t=[...$('#'+boxId).querySelectorAll('textarea')].pop();if(t){t.scrollIntoView({block:'center',behavior:'smooth'});t.focus()}changed()};
   box.appendChild(add);
 }
-/* Tocar una razón o frase en la página abre su editor */
+/* Tocar una razón en la página abre su editor */
 function editAt(k,i){
   const p=$('#panel');if(!p)return;
   p.classList.add('on');
@@ -140,7 +140,7 @@ function buildPanel(open){
   const S=(id,title,body,op)=>`<details class="sec" id="sec_${id}"${op?' open':''}><summary>${title}</summary><div class="sb">${body}</div></details>`;
   p.innerHTML=`<div class="ph2"><div><h3>Panel del Director 🎬</h3><span class="pill" id="saveStatus">Edita y pulsa Publicar al terminar</span></div><button class="x2" id="pc" type="button">✕ Cerrar</button></div>
   <div class="pbody">
-  <div class="note">Todo lo que cambies se ve al instante y queda como borrador en este navegador. Pulsa “Publicar” (sección 9) para subirlo al repositorio.</div>`
+  <div class="note">Todo lo que cambies se ve al instante y queda como borrador en este navegador. Pulsa “Publicar” (sección 8) para subirlo al repositorio.</div>`
   + S('datos','1 · Datos y estreno',`
     <label>Nombre de él (sale en la portada)</label><input type="text" data-k="name">
     <label>Fecha en que empezaron (para el contador)</label><input type="text" data-k="since" placeholder="AAAA-MM-DD">
@@ -165,10 +165,8 @@ function buildPanel(open){
     <label>Firma</label><input type="text" data-k="sign">`)
   + S('reasons','4 · Razones por las que te amo',`
     <div class="note">Edita cada razón, cambia el orden con ↑ ↓ o agrega las que quieras. También puedes tocar una razón directamente en la página para editarla.</div><div id="l_reasons"></div>`,1)
-  + S('quotes','5 · Frases para ti',`
-    <div class="note">Aparecen en el carrusel “Frases para ti”.</div><div id="l_quotes"></div>`)
-  + S('eps','6 · Episodios (fotos)',`<div id="gs"></div>`)
-  + S('musica','7 · Música y tráiler',`
+  + S('eps','5 · Episodios (fotos)',`<div id="gs"></div>`)
+  + S('musica','6 · Música y tráiler',`
     <div class="note">La música suena sola: empieza al abrir la página o con el primer toque (los celulares no dejan sonar nada antes de un toque). No se muestra ningún botón de música.</div>
     <div class="rw"><button id="am" type="button">🎵 Cargar MP3</button><button id="vm" type="button">🎬 Cargar video</button></div>
     <div class="note" style="margin-top:8px">El MP3 o video que cargues se sube como archivo a audio/ o video/ del repositorio (no engorda el HTML).</div>
@@ -177,12 +175,12 @@ function buildPanel(open){
     <div class="rw" style="margin-top:8px"><button id="ax" type="button">Quitar MP3</button><button id="vx" type="button">Quitar video</button></div>
     <label>YouTube <small>(opcional, pega el enlace completo)</small></label><input type="text" data-k="ytid" placeholder="https://www.youtube.com/watch?v=XXXXXXXXXXX">
     <div class="note" style="margin-top:8px;background:none;padding:0">YouTube solo se usa si no hay MP3 cargado. Si el video no permite insertarse, usa otro o un MP3.</div>`)
-  + S('regalo','8 · Regalo sorpresa (minijuego)',`
+  + S('regalo','7 · Regalo sorpresa (minijuego)',`
     <div class="note">Al anotar 3 goles en los penales, aparece esto:</div>
     <label>Mensaje final</label><textarea data-k="giftMsg" style="min-height:90px"></textarea>
     <div class="rw" style="margin-top:10px"><button id="bGift" type="button">🎫 Cargar imagen (entradas)</button><button id="bGiftX" type="button">🗑️ Quitar</button></div>
     <div class="note" id="gstat" style="margin-top:6px;background:none;padding:0"></div>`)
-  + S('guardar','9 · GitHub y publicar',`
+  + S('guardar','8 · GitHub y publicar',`
     <div class="note">Conecta tu repositorio una vez. El token se guarda solo en este navegador (nunca en el repo). Permiso: <b>Contents → Read and write</b>, solo sobre ese repo.</div>
     <label>Usuario de GitHub</label><input type="text" id="gh_owner" placeholder="tu-usuario">
     <label>Repositorio</label><input type="text" id="gh_repo" placeholder="mi-repo">
@@ -218,7 +216,6 @@ function buildPanel(open){
   });
 
   drawList('reasons','l_reasons','Escribe una razón…','Agregar razón');
-  drawList('quotes','l_quotes','Escribe una frase…','Agregar frase');
 
   $('#panelVol').value=D.musicVolume??25;
   $('#volLabel').textContent=(D.musicVolume??25)+'%';
