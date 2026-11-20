@@ -66,7 +66,8 @@ function renderPage(){
   $('#hero').style.backgroundImage=heroBg?`url("${src(heroBg)}")`:`linear-gradient(135deg,#0b3a9c33,#141414)`;
 
   [['r1','chapters',1],['r2','trips'],['r3','alianza']].forEach(([id,k,ep])=>{
-    const b=$('#'+id);b.innerHTML='';
+    const b=$('#'+id); if(!b) return;
+    b.innerHTML='';
     D[k].forEach((o,i)=>{
       const c=document.createElement('div');c.className='c';c.innerHTML=cardHtml(o,i,ep);b.appendChild(c)
     })
