@@ -129,8 +129,7 @@ function editAt(k,i){
   const d=$('#sec_'+k);if(d)d.open=true;
   setTimeout(()=>{const t=$('#l_'+k)?.querySelectorAll('textarea')[i];if(t){t.scrollIntoView({block:'center',behavior:'smooth'});t.focus()}},80);
 }
-$('#r5').addEventListener('click',e=>{const c=e.target.closest('[data-i]');if(c&&$('#panel'))editAt('reasons',+c.dataset.i)});
-$('#r4').addEventListener('click',e=>{const c=e.target.closest('[data-i]');if(c&&$('#panel'))editAt('quotes',+c.dataset.i)});
+$('#r5')?.addEventListener('click',e=>{const c=e.target.closest('[data-i]');if(c&&$('#panel'))editAt('reasons',+c.dataset.i)});
 
 function buildPanel(open){
   $('#gear')?.remove();$('#panel')?.remove();
