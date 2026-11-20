@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Panel del Director 🎬</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="intro">
+  <h3 class="script" id="introTitle"></h3>
+  <div class="env" id="env">
+    <div class="back"></div>
+    <div class="card"><small id="cardSmall"></small><span class="script" id="cardTitle"><span id="cardLine1"></span><br><span id="cardLine2"></span></span></div>
+    <div class="pocket"></div>
+    <div class="flap"></div>
+    <svg class="seal" viewBox="0 0 64 64"><path d="M32 58C10 40 4 28 4 20 4 11 11 5 19 5c6 0 10 3 13 8 3-5 7-8 13-8 8 0 15 6 15 15 0 8-6 20-28 38z" fill="#7a1530" stroke="#4d0c1e" stroke-width="3"/><path d="M32 44c-9-8-12-13-12-17 0-4 3-7 6-7 3 0 5 2 6 4 1-2 3-4 6-4 3 0 6 3 6 7 0 4-3 9-12 17z" fill="#a52347"/></svg>
+  </div>
+  <div id="lockbox"></div>
+</div>
+
+<nav id="nav">
+  <div class="logo">NUESTRA HISTORIA</div>
+  <div class="links"><a href="#capitulos">Capítulos</a><a href="#viajes">Viajes</a><a href="#alianza">Alianza</a><a href="#frases">Frases</a><a href="#carta">Carta</a></div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="tag" id="heroTag"></div>
+  <h1 class="script"><span id="heroTitle"></span><br><span id="nom"></span></h1>
+  <div class="meta"><b id="heroMeta1"></b><span id="heroMeta2"></span><span id="heroMeta3"></span></div>
+  <p id="heroDesc">Cada viaje, cada gol y cada día a tu lado es un capítulo que volvería a vivir. Esta es nuestra historia, celebrando nuestros primeros 6 meses.</p>
+  <div style="margin-top:28px"><button class="btn b1" id="playBtn">▶ Reproducir</button><a class="btn b2" href="#carta">ⓘ Más información</a></div>
+</header>
+
+<section id="capitulos"><h2>Capítulos de nuestra historia <small>Temporada 1</small></h2><div class="row" id="r1" data-r></div></section>
+<section id="viajes"><h2>Nuestros viajes</h2><div class="row" id="r2" data-r></div></section>
+<section id="alianza"><h2>Alianza Lima <small>Tu gran pasión</small></h2><div class="row" id="r3" data-r></div></section>
+<section id="frases"><h2>Frases para ti</h2><div class="row" id="r4" data-r></div></section>
+<section style="background:rgba(255,255,255,0.02);border-top:1px solid #333;margin-top:20px;padding-top:40px">
+  <div style="text-align:center; padding:10px 4%">
+    <h2 style="margin:0;font-size:20px">El tiempo a tu lado</h2>
+    <div class="script" style="font-size:26px; color:#888; margin-top:4px">Haciendo historia juntos...</div>
+  </div>
+  <div class="count" id="count" data-r></div>
+</section>
+<section id="razones"><h2>Razones por las que te amo</h2><div class="reasons" id="r5" data-r></div></section>
+
+<!-- SECCIÓN CARTA (Transición fluida sin 3D) -->
+<section id="carta" style="padding-bottom: 80px;">
+  <div class="paper-wrapper">
+    <div class="paper" id="paper-doc">
+      <svg class="sl" viewBox="0 0 64 64"><path d="M32 58C10 40 4 28 4 20 4 11 11 5 19 5c6 0 10 3 13 8 3-5 7-8 13-8 8 0 15 6 15 15 0 8-6 20-28 38z" fill="#7a1530" stroke="#4d0c1e" stroke-width="3"/><path d="M32 44c-9-8-12-13-12-17 0-4 3-7 6-7 3 0 5 2 6 4 1-2 3-4 6-4 3 0 6 3 6 7 0 4-3 9-12 17z" fill="#a52347"/></svg>
+      <h2 class="script" id="letterTitle"></h2>
+      <div id="letter" data-r></div>
+      <p class="sg script" id="sign"></p>
+      <button class="btn" id="love">Abre tu regalo 🎁</button>
+    </div>
+  </div>
+</section>
+<footer>Hecho con amor · Feliz 6 Meses</footer>
+
+<!-- MINIJUEGO RETRO (Con botón de cerrar) -->
+<div id="minigame" class="ov-modal">
+  <div class="game-box">
+    <button class="close-game" id="btn-close-game">✕</button>
+    <h3>Anota 3 goles ⚽</h3>
+    <div class="score">Goles: <span id="g-score">0</span>/3</div>
+    
+    <div class="pitch" id="pitch">
+       <div class="goal-area"></div>
+       <div class="gk" id="gk"></div>
+       <div class="ball" id="ball"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL RECOMPENSA (Stand-up Hablando Huevadas) -->
+<div id="reward" class="ov-modal">
+   <div class="reward-card">
+      <h2 class="script">¡Felicidades!</h2>
+      <img id="r-img" src="" alt="Regalo" style="display:none">
+      <p id="r-msg"></p>
+      <button class="btn" id="close-reward">Cerrar</button>
+   </div>
+</div>
+
+<div id="film"></div>
+<audio id="bgm" loop preload="auto"></audio>
+<div id="musicCtl" hidden aria-hidden="true">
+  <button id="musicToggle" type="button" title="Reproducir música">▶</button>
+  <span class="mstat" id="musicStatus">Música</span>
+  <input id="musicVol" type="range" min="0" max="100" value="25" aria-label="Volumen">
+</div>
+<script>window.ADMIN_MODE=true</script>
+<script src="js/app.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
