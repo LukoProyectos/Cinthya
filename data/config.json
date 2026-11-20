@@ -18,45 +18,90 @@
   "heroMeta1": "100% de coincidencia",
   "heroMeta2": "Romance · Aventura · Complicidad",
   "heroMeta3": "Temporadas ∞",
-  "giftMsg": "¡Lo lograste! 💙\nAquí están nuestras entradas para ir a ver Hablando Huevadas. ¡Nos vamos a reír toda la noche! Te amo.",
+  "giftMsg": "No eras tan chueco, amorcito.\n\nAquí tienes tu entrada para Hablando Huevadas. No cualquiera, la última del año.\n\nPrepárate para reírnos toda la noche 🥳",
   "giftImg": "",
   "chapters": [
     {
       "t": "El día que nos conocimos",
-      "d": "Donde todo empezó.",
+      "d": "No hay foto, pero aquí una idea.",
       "img": ""
     },
     {
-      "t": "Nuestra primera cita",
-      "d": "Nervios, risas y una sonrisa imposible de olvidar.",
+      "t": "El primer encuentro",
+      "d": "Mensaje encriptado. Confío en que lo entenderás.",
       "img": ""
     },
     {
-      "t": "El primer “te amo”",
-      "d": "Uno de esos momentos que no se borran.",
+      "t": "La primera cita",
+      "d": "Claramente lo que más disfrutamos.",
       "img": ""
     },
     {
-      "t": "Nuestras locuras",
-      "d": "Esas fotos que no podemos mirar sin reír.",
+      "t": "El primer ¨te amo¨",
+      "d": "",
       "img": ""
     }
   ],
   "trips": [
     {
-      "t": "Nuestro primer viaje",
-      "d": "Maletas, mapas y mucha emoción.",
-      "img": ""
+      "t": "",
+      "d": "",
+      "img": "img/preview-632ef6.jpg"
     },
     {
-      "t": "Atardeceres contigo",
-      "d": "Un lugar, un momento y tú.",
-      "img": ""
+      "t": "",
+      "d": "",
+      "img": "img/preview-1-dfdad4.jpg"
     },
     {
-      "t": "El próximo destino",
-      "d": "Ese que ya soñamos juntos.",
-      "img": ""
+      "t": "",
+      "d": "",
+      "img": "img/preview-2-aca2ba.jpg"
+    },
+    {
+      "t": "",
+      "d": "",
+      "img": "img/preview-3-f6b43b.jpg"
+    },
+    {
+      "t": "",
+      "d": "",
+      "img": "img/preview-4-8b5ac2.jpg"
+    },
+    {
+      "t": "",
+      "d": "",
+      "img": "img/preview-5-fbfbc2.jpg"
+    },
+    {
+      "t": "",
+      "d": "",
+      "img": "img/preview-6-4490b5.jpg"
+    },
+    {
+      "t": "",
+      "d": "",
+      "img": "img/preview-7-8a80ff.jpg"
+    },
+    {
+      "t": "",
+      "d": "",
+      "img": "img/preview-8-d217e5.jpg"
+    },
+    {
+      "t": "",
+      "d": "",
+      "img": "img/preview-9-177a13.jpg"
+    },
+    {
+      "t": "",
+      "d": "",
+      "img": "img/preview-10-d54acc.jpg"
+    },
+    {
+      "t": "",
+      "d": "",
+      "img": "img/preview-11-41f984.jpg"
     }
   ],
   "alianza": [
