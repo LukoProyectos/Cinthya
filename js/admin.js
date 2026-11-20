@@ -1,5 +1,5 @@
 /* ================= GITHUB: conexión, subida y publicación ================= */
-const KEY='para_ti_mi_amor_config', GH_KEY='gh_cfg_cynthia';
+const KEY='para_ti_mi_amor_config', GH_KEY='gh_cfg_cinthya';
 const GH=(()=>{
   let c={};try{c=JSON.parse(localStorage.getItem(GH_KEY)||'{}')}catch(e){}
   if(!c.owner&&/github\.io$/.test(location.hostname)){      // autodetecta en GitHub Pages
@@ -184,7 +184,7 @@ function buildPanel(open){
     <div class="note">Conecta tu repositorio una vez. El token se guarda solo en este navegador (nunca en el repo). Permiso: <b>Contents → Read and write</b>, solo sobre ese repo.</div>
     <label>Usuario de GitHub</label><input type="text" id="gh_owner" placeholder="tu-usuario">
     <label>Repositorio</label><input type="text" id="gh_repo" placeholder="mi-repo">
-    <label>Carpeta de esta sorpresa</label><input type="text" id="gh_folder" placeholder="cynthia">
+    <label>Carpeta de esta sorpresa</label><input type="text" id="gh_folder" placeholder="cinthya">
     <label>Rama</label><input type="text" id="gh_branch" placeholder="main">
     <label>Token (fine-grained)</label><input type="text" id="gh_token" placeholder="github_pat_…" autocomplete="off" style="-webkit-text-security:disc">
     <div class="rw" style="margin-top:10px"><button id="ghTest" type="button">🔌 Probar conexión</button></div>
