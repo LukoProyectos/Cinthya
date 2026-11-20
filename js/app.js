@@ -73,10 +73,10 @@ function renderPage(){
     })
   });
 
-  const vis=a=>a.map((t,i)=>({t,i})).filter(o=>String(o.t).trim());
-  $('#r4').innerHTML=vis(D.quotes).map((o,n)=>`<div class="q script ${['','w','l'][n%3]}" data-i="${o.i}">${esc(o.t)}</div>`).join('');
-  $('#r5').innerHTML=vis(D.reasons).map((o,n)=>`<div data-i="${o.i}"><b style="color:var(--red);font-size:18px">#${n+1}</b><br>${esc(o.t)}</div>`).join('');
-
+const vis=a=>a.map((t,i)=>({t,i})).filter(o=>String(o.t).trim());
+  if($('#r4')) $('#r4').innerHTML=vis(D.quotes).map((o,n)=>`<div class="q script ${['','w','l'][n%3]}" data-i="${o.i}">${esc(o.t)}</div>`).join('');
+  if($('#r5')) $('#r5').innerHTML=vis(D.reasons).map((o,n)=>`<div data-i="${o.i}"><b style="color:var(--red);font-size:18px">#${n+1}</b><br>${esc(o.t)}</div>`).join('');
+   
   // Carta
   $('#letter').innerHTML=D.letter.split(/\n\s*\n/).filter(Boolean).map((p,i)=>`<p class="hid" data-delay="${i*250}">${esc(p)}</p>`).join('');
   $('#sign').textContent=D.sign ?? '';
