@@ -7,7 +7,7 @@ const PENDING={};                       // vista previa de archivos recién subi
 const src=p=>PENDING[p]||p||'';         // ruta -> URL usable
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const el=h=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild};
-const GROUPS=[['chapters','Capítulos de nuestra historia'],['trips','Nuestros viajes'],['alianza','Alianza Lima']];
+const GROUPS=[['chapters','Capítulos de nuestra historia'],['trips','Nosotros']];
 let previewLock=false;
 
 /* ---------- OBSERVADORES DE ANIMACIÓN PARA LA CARTA ---------- */
@@ -62,10 +62,10 @@ function renderPage(){
   $('#letterTitle').textContent = D.letterTitle ?? '';
   $('#letterTitle').hidden = !String(D.letterTitle ?? '').trim();
 
-  const heroBg = D.heroImg || D.chapters.find(o=>o.img)?.img || D.trips.find(o=>o.img)?.img || D.alianza.find(o=>o.img)?.img;
+  const heroBg = D.heroImg || D.chapters.find(o=>o.img)?.img || D.trips.find(o=>o.img)?.img;
   $('#hero').style.backgroundImage=heroBg?`url("${src(heroBg)}")`:`linear-gradient(135deg,#0b3a9c33,#141414)`;
 
-  [['r1','chapters',1],['r2','trips'],['r3','alianza']].forEach(([id,k,ep])=>{
+  [['r1','chapters',1],['r2','trips']].forEach(([id,k,ep])=>{
     const b=$('#'+id); if(!b) return;
     b.innerHTML='';
     D[k].forEach((o,i)=>{
@@ -73,7 +73,7 @@ function renderPage(){
     })
   });
 
-const vis=a=>a.map((t,i)=>({t,i})).filter(o=>String(o.t).trim());
+  const vis=a=>a.map((t,i)=>({t,i})).filter(o=>String(o.t).trim());
   if($('#r4')) $('#r4').innerHTML=vis(D.quotes).map((o,n)=>`<div class="q script ${['','w','l'][n%3]}" data-i="${o.i}">${esc(o.t)}</div>`).join('');
   if($('#r5')) $('#r5').innerHTML=vis(D.reasons).map((o,n)=>`<div data-i="${o.i}"><b style="color:var(--red);font-size:18px">#${n+1}</b><br>${esc(o.t)}</div>`).join('');
    
